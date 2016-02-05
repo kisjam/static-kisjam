@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>SCD</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/soundcloud.css">
+</head>
+<body>
+
+<form action="#">
+	<input type="text" name="search_keyword" value="" placeholder="ex. 椎名林檎" class="box-search" id="js-search-keyword">
+	<input type="submit" name="search_button" value="Search." class="btn-search" id="js-btn-search">
+</form>
+<div class="search-result" id="js-search-result"></div>
+
+<script src="/js/libs/require.js"></script>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+<script>
+$(function() {
+	SC.initialize({client_id: '18dcf1def858bf675fbca69e83158d9e'});
+	
+/* 	searchInit('椎名林檎'); */
+	function download(url, name){
+	    var a = document.createElement('a');
+	    a.href = url;
+	    a.setAttribute('download', name || 'noname');
+	    a.dispatchEvent(new CustomEvent('click'));
+	}
+	function playSound(id) {
+		SC.stream(id).then(function(player){
+			player.play();
+			tempPlayer = player;
+		});
+	}
+	function stopSound() {
+		tempPlayer.stop();
+	}
+	function downloadSound(id, title) {
+		SC.stream(id).then(function(player){
+			player.initAudio();
+			setTimeout(function() {
+				download(player.streamInfo.url, title)
+			}, 1000)
+		});
+	}
+	
+	
+	function searchInit(keyword) {
+		SC.get('/tracks', {
+			q: keyword,
+			limit: 100
+		}).then(function(tracks) {
+			var _html = '';
+			for(var i = 0;i < tracks.length; i++) {
+				var _artworkUrl = tracks[i].artwork_url ? tracks[i].artwork_url: '/imgs/lab/soundcloud/dummy.png';
+				var _id = tracks[i].id;
+				
+				_html += '<div class="item" data-id="tracks/' + _id + '">';
+				_html += '	<div class="download js-download"><i class="icon-download"></i></div>';
+				_html += '	<img src="' + _artworkUrl + '" class="thumbnail">';
+				_html += '	<p class="title">' + tracks[i].title + '</p>';
+				_html += '</div>';
+			}
+			$('#js-search-result').html(_html);
+			
+			$('.item').on('click', function() {
+				var _trackId = $(this).data('id');
+				playSound(_trackId);
+				$('.item').removeClass('is-enable');
+				$(this).addClass('is-enable');
+				return false;
+			});
+			$('.js-download').on('click', function() {
+				var _trackId = $(this).parent().data('id');
+				var _title = $(this).prev().html();
+				downloadSound(_trackId, _title);
+			});
+		});
+	}
+	$('#js-btn-search').on('click', function() {
+		var _keyword = $('#js-search-keyword').val();
+		searchInit(_keyword);
+		return false;
+	});
+	
+/*
+	
+*/
+})
+
+
+
+</script>
+</body>
+</html>

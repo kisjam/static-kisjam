@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Create JS demo 5</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#helloworld {
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<script>createjs = window;</script>
+	<script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
+	<script src="http://code.createjs.com/tweenjs-0.5.1.min.js"></script>
+	<canvas id="helloworld"></canvas>
+	<script>
+		
+		// forked from mikelito's "EaselJS & TweenJS" http://jsdo.it/mikelito/2BNT
+		
+		(function() {
+			var Particle = function(canvasId, config) {
+				// Config
+				this.config = {
+					circleLength: 100
+				};
+				
+				//has override config
+				if (config) {
+					var c;
+					for (c in config) {
+						if (!c in this.config) break;
+						this.config[c] = config[c];
+					}
+				}
+				
+				this.canvas = document.getElementById(canvasId);
+				this.canvas.width = window.innerWidth;
+				this.canvas.height = window.innerHeight;
+				this.stage = new Stage(this.canvas);
+				this.circleList = [];
+				this.isStageClick = false;
+				
+				this.init();
+			};
+			
+			Particle.prototype = {
+				init: function() {
+
+					var _this = this,
+						speedX,
+						speedY,
+						radius,
+						color,
+						width,
+						height,
+						circle,
+						keepX,
+						keepY;
+					
+					_this.stage.compositeOperation = 'lighter';
+					_this.stage.enableMouseOver(5);
+					
+					// create circle.
+					for (var i = 0; i < this.config.circleLength; i++) {
+						speedX = Math.random() - Math.random();
+						speedY = Math.random() - Math.random();
+						radius = Math.floor(Math.random() * 100) + 2;
+						color = Graphics.getRGB(Math.random() * 0xFFFFFF);
+						
+						circle = new Circle(speedX, speedY, radius, color);
+						circle.x = this.getRandomInt(radius, window.innerWidth - radius);
+						circle.y = this.getRandomInt(radius, window.innerHeight - radius);
+						
+						
+						this.circleList.push(circle);
+						this.stage.addChild(circle);
+						
+						this.circleList[i].add
+					}
+					
+					// animation
+					Ticker.useRAF = true;
+					Ticker.setFPS(60);
+					Ticker.addEventListener('tick', function() {
+						if (!_this.isStageClick) {
+							for (var i = 0;i < _this.config.circleLength;i++) {
+								_this.circleList[i].tick(keepX, keepY);
+							}
+						}
+						_this.stage.update();
+					})
+					
+					
+					
+				},
+				getRandomInt: function(min, max) {
+					return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+				
+			};
+			
+			var Circle = function(speedX, speedY, radius, color) {
+				this.speedX = speedX;
+				this.speedY = speedY;
+				this.radius = radius;
+				this.color = color;
+				
+				this.graphics = new Graphics();
+				this.graphics.beginFill(color);
+				this.graphics.drawCircle(0, 0, radius);
+			};
+			
+			Circle.prototype = new Shape();
+			
+			Circle.prototype.tick = function(keepX, keepY) {
+				tempX = keepX - this.x;
+				
+				this.x += this.speedX;
+				this.y += this.speedY;
+				if (this.x + this.radius > window.innerWidth || this.x - this.radius < 0) {this.speedX *= -1};
+				if (this.y + this.radius > window.innerHeight || this.y - this.radius < 0) {this.speedY *= -1};
+			};
+			
+			Circle.prototype.fetch = function(targetX, targetY, delay, cb) {
+				Tween.get(this)
+				.to({
+					x: targetX,
+					y: targetY
+				}, 300, Ease.backOut)
+				.call(function() {
+					this.alpha = 1;
+					if (cb) {
+						cb();
+					}
+				})
+			}
+						
+			window.addEventListener('load', function() {
+				var particle = new Particle('helloworld', {
+					circleLength: 10
+				});
+			});
+			
+		})();
+		
+	</script>
+</body>
+</html>

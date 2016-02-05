@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+/*------------------------------------------
+
+	@ Style Name	/css/common/base.css
+
+--------------------------------------------
+
+		- Reset
+		- html, body
+		- Section
+		- Module
+
+------------------------------------------*/
+
+/*------------------------------------------
+ *	Reset
+------------------------------------------*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,icenter,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}img{line-height:0;vertical-align:bottom;}
+
+/*------------------------------------------
+ *	html, body
+------------------------------------------*/
+html{
+	font-size:62.5%;
+	height: 100%;
+}
+body{
+	height: 100%;
+	padding: 10px;
+	line-height:1;
+	font-size: 1.4rem;
+	font-family:"Helvetica", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color:#999;
+	background: linear-gradient(to bottom, rgba(177,250,244,1) 0%, rgba(255,248,209,1) 100%);
+	-webkit-text-size-adjust:none;
+	box-sizing: border-box;
+}
+::selection {
+	background:#6cc;
+	color:#fff;
+}
+/*	Link
+------------------------------------------*/
+a:link {
+	color:#999;
+}
+a:visited {
+	color:#999;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+
+}
+
+/*------------------------------------------
+ *	Layout
+------------------------------------------*/
+
+
+/*------------------------------------------
+ *	header
+------------------------------------------*/
+#headerGlobal {
+}
+#headerGlobal h1 {
+	text-align: center;
+	padding:40px 0 0 0;
+}
+
+/*------------------------------------------
+ *	mainContents
+------------------------------------------*/
+#mainContents {
+	overflow: hidden;
+	margin: 40px 0;
+	background: #fff;
+}
+#mainContents section {
+	margin:40px 0 80px;
+}
+#mainContents section .ttl {
+	position: relative;
+	font-weight: bold;
+	margin:0 0 40px 0;
+	padding: 0 0 40px 0;
+	text-align:center;
+	font-size: 1.8rem;
+}
+#mainContents section .ttl:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 10px;
+	height: 3px;
+	margin: auto;
+	background: #ccc;
+}
+#mainContents section .subttl {
+	margin:40px 0;
+	text-align:center;
+}
+
+/*		profile
+------------------------------------------*/
+/*			social
+------------------------------------------*/
+#mainContents .social li {
+	margin: 20px 0;
+	text-align: center;
+}
+
+/*			email
+------------------------------------------*/
+#mainContents .email address {
+	text-align:center;
+}
+#mainContents .email address a {}
+
+/*------------------------------------------
+ *	footer
+------------------------------------------*/
+#footerGlobal small {}
+#copyright {
+	margin:0 0 40px 0;
+	text-align:center;
+	font-size:1.2rem;
+	color: #fff;
+}
+/*------------------------------------------
+ *	Module
+------------------------------------------*/

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SP-READY-TOP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/css/common/base.css">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+</head>
+<body>
+<style type="text/css">
+body {
+	font-family: 'Quicksand', sans-serif;
+	background:#fafafa;
+}
+header,
+footer {
+	padding:40px 0;
+	text-align:center;
+	font-size:24px;
+	color:#6cc;
+
+}
+img {
+	max-width:100%;
+}
+</style>
+
+<header><h1>HEADER</h1></header>
+<main>
+	<img src="http://farm3.staticflickr.com/2490/3914422717_d260e0a27f_o.jpg" alt="" />
+</main>
+<footer>FOOTER</footer>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://stephband.info/jquery.event.move/js/jquery.event.move.js"></script>
+<script src="/js/libs/jquery.event.swipe.js"></script>
+
+<script>
+	(function($) {
+		$('header').on('swipeleft', function() {
+			alert('hoge')
+		})
+	})(jQuery)
+</script>
+</body>
+</html>

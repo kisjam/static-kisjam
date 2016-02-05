@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>chrome table bug</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,icenter,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}img{line-height:0;vertical-align:bottom;}
+
+body {
+	font-size: 75%; /* for ie */
+	line-height: 1.231;
+	font-family:'ＭＳ Ｐゴシック', sans-serif;
+}
+
+.linkBoxDefault01 {
+	overflow:hidden;
+	width:685px;
+	margin:0 auto;
+	font-size:117%;
+	line-height:1.4;
+}
+.linkBoxDefault01 li {
+	float:left;
+	width:335px;
+	border:1px #ccc solid;
+}
+.linkBoxDefault01 li li {
+	float:none;
+	border:none;
+	padding:0;
+}
+.linkBoxDefault01 ul {
+	height:15em;
+}
+</style>
+<div class="wrapper">
+<ul class="linkBoxDefault01">
+	<li class="floClear">
+		<h3><a href="/otoiawase.html" class="noLinkStyle"><img src="/imgs/kojin/support/ttl_toiawase.png" width="335" height="40" alt="お問合せ先" class="btn" /></a></h3>
+		<ul class="iconArrowSquare01 h5em">
+			<li><a href="/otoiawase.html#nav01">個人向け商品に関するお問合せ</a></li>
+			<li><a href="/otoiawase.html#nav02">法人向け商品に関するお問合せ</a></li>
+			<li><a href="/otoiawase.html#nav03">苦情に関するお問合せ</a></li>
+		</ul>
+	</li>
+	<li class="floClear">
+		<h3><img src="/imgs/kojin/support/ttl_otetuduki.png" width="335" height="40" alt="各種 お手続き" /></h3>
+		<ul class="iconArrowSquare01 h14em">
+			<li><a href="/faq/tetsuduki.html#a02">キャッシュカード・通帳・印鑑をなくした<br />ときは？
+</a></li>
+			<li><a href="/faq/tetsuduki.html#a03">キャッシュカードの暗証番号を忘れてしま<br />ったときは？</a></li>
+			<li><a href="/faq/henkou.html#a01">住所変更をしたいときは？</a></li>
+			<li><a href="/faq/henkou.html#a02">氏名を変更したいときは？</a></li>
+			<li><a href="/faq/henkou.html#a03">お取引店を変更したいときは？</a></li>
+		</ul>
+	</li>
+	<li class="evenBox01">
+		<h3><a href="/faq.html" class="noLinkStyle"><img src="/imgs/kojin/support/ttl_goshitumon.png" width="335" height="40" alt="よくあるご質問" class="btn" /></a></h3>
+		<ul class="iconArrowSquare01 h14em">
+			<li><a href="/faq/tetsuduki.html">お手続きに関するご質問</a></li>
+			<li><a href="/faq/henkou.html">変更手続に関するご質問</a></li>
+			<li><a href="/faq/nisa.html">NISAに関するご質問</a></li>
+			<li><a href="/faq.html#j05">セキュリティに関するご質問</a></li>
+			<li><a href="/faq/madoguchi.html">窓口・ATMに関するご質問</a></li>
+			<li><a href="/faq/jutaku.html">住宅ローンに関するご質問</a></li>
+			<li><a href="/kodirect/qa_q.html">近畿大阪ダイレクト（インターネットバンキ<br />
+ング）に関するご質問</a></li>
+		</ul>
+	</li>
+	<li class="floClear">
+		<h3><img src="/imgs/kojin/support/ttl_omoushikomi.png" width="335" height="40" alt="各種 お申込み" /></h3>
+		<ul class="iconArrowSquare01 h7em">
+			<li><a href="/kojin/fuyasu/toushin_mousikomi.html">投資信託のお申込方法</a></li>
+			<li><a href="/kojin/fuyasu/gaika_mousikomi.html">外貨預金のお申込方法</a></li>
+			<li><a href="/kojin/hiraku/timo_hajimete.html">近畿大阪「TIMO」新規申込方法</a></li>
+			<li><a href="/kojin/hiraku/timo_kirikae.html">近畿大阪「TIMO」切替申込方法</a></li>
+		</ul>
+	</li>
+	<li class="evenBox01">
+		<h3><img src="/imgs/kojin/support/ttl_gosoudan.png" width="335" height="40" alt="ご相談" /></h3>
+		<ul class="iconArrowSquare01 h4em">
+			<li><a href="/tenpo/loancenter.html">住宅ローンセンター</a></li>
+			<li><a href="/seminar/service.html">土日祝・夜間相談サービス</a></li>
+		</ul>
+	</li>
+</ul>
+</div>
+</body>
+</html>

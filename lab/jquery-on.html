@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jquery - on</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/css/common/base.css">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+</head>
+<body>
+<style type="text/css">
+body {
+	font-family: 'Quicksand', sans-serif;
+	background:#fafafa;
+}
+#elm {
+	padding:1em;
+	width:50%;
+	height:50%;
+	margin:5em auto;
+	border:1px #ccc solid;
+	background:#fff;
+	text-align:center;
+}
+
+</style>
+
+<div id="elm">
+loading...
+<!-- / #elm --></div>
+結果：onでloadした場合、複数回記述してもちゃんと実行される。
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		var _window = $(window);
+		var _elm = $('#elm');
+		
+		_window.on('load', function() {
+			_elm.html('load!').css('background', '#6cc');
+		})
+		_window.on('load resize', function() {
+			_elm.html('riseze?!')
+		})
+	})
+
+</script>
+</body>
+</html>

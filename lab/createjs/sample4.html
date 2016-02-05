@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Create JS demo 4</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#helloworld {
+			background: #fafafa;
+		}
+	</style>
+</head>
+<body>
+	<script>createjs = window;</script>
+	<script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
+	<script src="http://code.createjs.com/tweenjs-0.5.1.min.js"></script>
+	<canvas id="helloworld"></canvas>
+	<script>
+			
+		(function() {
+		
+			
+			var BgText = function(text, canvasId) {
+				this.text = text;
+				this.color = '#ffffff';
+				this.font = '200px Helvetica'
+				this.canvas = document.getElementById(canvasId);
+				this.canvas.width = window.innerWidth;
+				this.canvas.height = window.innerHeight;
+				this.stage = new Stage(this.canvas);
+				
+				this.init();
+			}
+			BgText.prototype.init = function() {
+				var _this = this,
+					text;
+				_this.stage.enableMouseOver(5);
+				text = new Text(this.text, this.font, this.color);
+				text.x = Math.floor(window.innerWidth / 2 - text.getMeasuredWidth() / 2);
+				text.y = Math.floor(window.innerHeight / 2 - text.getMeasuredHeight() / 2);
+
+ 				text.addEventListener('mouseover', function() {
+	 				text.color = '#66cccc';
+	 				_this.stage.update();
+ 				})
+ 				text.addEventListener('mouseout', function() {
+	 				text.color = '#ffffff';
+	 				_this.stage.update();
+ 				})
+ 				
+ 				_this.stage.addChild(text);
+ 				_this.stage.update();
+				
+			}
+			
+			window.addEventListener('load', function() {
+				var text = new BgText('Hello world!', 'helloworld');
+			});
+			
+		})();
+		
+	</script>
+</body>
+</html>

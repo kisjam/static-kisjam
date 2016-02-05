@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>php dir name</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<style type="text/css">
+</style>
+
+<?php
+//$url = $_SERVER['PHP_SELF'];
+$url = '/lab/hoge/foo/php-dir-name.html';
+
+print '$URL: '.$url.'<hr>';
+
+print 'basename: '.basename($url);print "<hr>";
+print 'dirname: '.dirname($url);print "<hr>";
+print 'basename(dirname): '.basename(dirname($url));print "<hr>";
+print_r(pathinfo($url));print "<hr>";
+?>
+
+</body>
+</html>

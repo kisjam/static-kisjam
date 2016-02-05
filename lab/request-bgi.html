@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Request images</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<style type="text/css">
+html,body {
+	height: 100%;
+}
+.item {
+	height: 100%;
+}
+@media only screen and (min-width: 768px) { /* for pc */
+	.item {
+		background: url(/imgs/lab/001.jpg) 50% 50% no-repeat;
+	}
+}
+@media only screen and (max-width: 767px) { /* for smartphone */
+	.item {
+		background: url(/imgs/lab/002.jpg) 50% 50% no-repeat;
+	}
+}
+
+</style>
+<body>
+
+<div class="item"></div>	
+
+</body>
+</html>

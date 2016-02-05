@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Lab.</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<header>
+	<h1>Lab File</h1>
+</header>
+<ul>
+<?php
+
+	if ($handle = opendir('./')) {
+		while (false !== ($file = readdir($handle))) {
+			echo "<li><a href=".$file.">".$file."</li>\n";
+		}
+
+		closedir($handle);
+	}
+	
+?> 
+</ul>
+</body>
+</html>

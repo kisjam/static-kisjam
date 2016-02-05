@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>tweet button</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/css/common/base.css">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+</head>
+<body>
+<style type="text/css">
+body {
+	font-family: 'Quicksand', sans-serif;
+	background:#fafafa;
+}
+header,
+footer {
+	padding:40px 0;
+	text-align:center;
+	font-size:24px;
+	color:#6cc;
+
+}
+img {
+	max-width:100%;
+}
+</style>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="http://test.brh.co.jp/seimeishi/journal/077/research_2.html" data-layout="buttton_count" data-send="false" data-width="450" data-show-faces="false"></div>
+</body>
+</html>

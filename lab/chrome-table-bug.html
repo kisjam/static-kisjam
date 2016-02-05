@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>chrome table bug</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<style type="text/css">
+	h2 {
+		text-align:center;
+	}
+	table {
+		width:80%;
+		margin:0 auto;
+		border-top:1px #999 solid;
+		border-left:1px #999 solid;
+		border-spacing:0;
+		border-collapse:collapse;
+	}
+	th {
+		background:#6cc;
+		color:#fff;
+		border-right:1px #999 solid;
+		border-bottom:1px #999 solid;
+	}
+	td {
+		padding:10px 0;
+		background:#fff;
+		text-align:center;
+		border-right:1px #999 solid;
+		border-bottom:1px #999 solid;
+	}
+	
+	.tbl02 .col01-01,
+	.tbl02 .col01-02 {
+		border-bottom:1px #999 dotted;
+	}
+	
+	.tbl03 {
+		border-collapse:separate;
+	}
+	.tbl03 .col01-01,
+	.tbl03 .col01-02 {
+		border-bottom:1px #999 dotted;
+	}
+	
+</style>
+
+<h1>table sample</h1>
+<h2>Normal</h2>
+<table class="tbl01">
+	<tr>
+		<th rowspan="2">header</th>
+		<td class="col01-01">col01-01</td>
+		<td class="col01-02">col01-02</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="col02-01">col02-01</td>
+	</tr>
+</table>
+
+<h2>Dotted</h2>
+<table class="tbl02">
+	<tr>
+		<th rowspan="2">header</th>
+		<td class="col01-01">col01-01</td>
+		<td class="col01-02">col01-02</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="col02-01">col02-01</td>
+	</tr>
+</table>
+
+<h2>Dotted 修正版</h2>
+<table class="tbl03">
+	<tr>
+		<th rowspan="2">header</th>
+		<td class="col01-01">col01-01</td>
+		<td class="col01-02">col01-02</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="col02-01">col02-01</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>option disabled</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<style type="text/css">
+	p {
+		line-height: 2;
+	}
+</style>
+
+<h1>option disabled</h1>
+
+<select name="sample" id="sample">
+	<option value="0">選択してください</option>
+	<option value="1">いちご</option>
+	<option value="2">ベリー</option>
+	<option value="3">レモン</option>
+	<option value="4">ぶどう</option>
+</select>
+
+<p><a href="#" id="js-disable">いちごを無効化</a></p>
+<p><a href="#" id="js-enable">いちごを有効化</a></p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$('#js-disable').on('click', function() {
+			$('option[value=1]').attr('disabled', 'disabled');
+			return false;
+		});
+		
+		$('#js-enable').on('click', function() {
+			$('option[value=1]').removeAttr('disabled');
+			return false;
+		});
+	})
+</script>
+
+</body>
+</html>

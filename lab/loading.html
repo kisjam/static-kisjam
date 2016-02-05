@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>absolute center</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+
+
+</head>
+<body>
+
+
+<div id="loader">
+	Loading <span id="load-text">0%</span>
+	<div id="bar"><span></span></div>
+</div>
+<!--
+	<p><img src="/imgs/lab/001.jpg" alt="" /></p>
+	<p><img src="/imgs/lab/002.jpg" alt="" /></p>
+-->
+
+<div id="content" style="display: none;">
+	<p><img src="/imgs/lab/001.jpg" alt="" /></p>
+	<p><img src="/imgs/lab/002.jpg" alt="" /></p>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(function() {
+	Array.prototype.remove = function(element) {
+	  for (var i = 0; i < this.length; i++)
+	    if (this[i] == element) this.splice(i,1); 
+	};
+
+	function preload(images, progress) {
+		var total = images.length;
+	    $(images).each(function(){
+			var src = this;
+	        $('<img/>')
+				.attr('src', src)
+				.load(function() {
+					images.remove(src);
+					progress(total, total - images.length);
+				});
+	    });
+	}
+	
+	var now_percent = 0;
+	var displaying_percent= 0;
+	preload([
+		'/imgs/lab/001.jpg',
+		'/imgs/lab/002.jpg'
+	], function(total, loaded){
+		now_percent = Math.ceil(100 * loaded / total);
+	});
+
+	var timer = window.setInterval(function() {
+		if (displaying_percent >= 100) {
+			window.clearInterval(timer);
+			$('#loader').fadeOut('slow', function() {
+				$('#content').fadeIn('slow');
+			});
+		} else {
+			if (displaying_percent < now_percent) {
+				displaying_percent++;
+				$('#load-text').html(displaying_percent + '%');
+				$('#bar span').css('width', displaying_percent + '%');
+			}
+		}
+	}, 
+	10);	
+});
+</script>
+</body>
+</html>
