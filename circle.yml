@@ -16,8 +16,8 @@ deployment:
   production: # just a label; label names are completely up to you
     branch: master
     commands:
-      - aws s3 sync html/ s3://static.kisjam.com/ --delete
+      - aws s3 sync ./ s3://static.kisjam.com/ --delete
   staging:
     branch: staging
     commands:
-      - aws s3 sync html/ s3://static.kisjam.com/ --delete
+      - aws s3 sync ./ s3://static.kisjam.com/ --delete
