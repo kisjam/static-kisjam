@@ -14,28 +14,19 @@
 	var $ctx = $canvas.getContext("2d");
 	var _tau = Math.PI * 2;
 	var _lasttime = Date.now();
-/*
 	var _mouseX = -1e9;
 	var _mouseY = -1e9;
-*/
 	var _balls = [];
 	
 	$canvas.width = window.innerWidth;
 	$canvas.height = window.innerHeight;
-/*
-	document.addEventListener('mouseMove', function(event) {
-		mouseX = event.clientX;
-		mouseY = event.clientY;
+	document.addEventListener('mousemove', function(event) {
+		_mouseX = event.clientX;
+		_mouseY = event.clientY;
 	})
-*/
 	for (var i = 0; i < $canvas.width * $canvas.height / (65 * 65); i++) {
 		_balls.push(new Ball());
 	}
-/*
-	for (var i = 0; i < 10; i++) {
-		_balls.push(new Ball());
-	}
-*/
 	
 	function Ball(startX, startY, startVelX, startVelY) {
 		this.x = startX || Math.random() * $canvas.width;
@@ -56,8 +47,17 @@
 		};
 		this.draw = function() {
 			$ctx.beginPath();
-			$ctx.globalAlpha = 0.4;
-			$ctx.fillStyle = '#ffffff';
+			var _distM = distMouse(this);
+
+			if (_distM > 200) {
+				$ctx.fillStyle = '#036564';				
+				$ctx.globalAlpha = 0.8;
+			} else {
+
+				$ctx.fillStyle = '#CDB380';
+				$ctx.globalAlpha = 1 - _distM / 240;
+			}
+			
 			$ctx.arc((0.5 + this.x) | 0, (0.5 + this.y) | 0, 3, 0, _tau, false);
 			$ctx.fill();
 		};
@@ -79,7 +79,7 @@
 	}
 	function draw() {
 		$ctx.globalAlpha = 1;
-		$ctx.fillStyle = '#222222';
+		$ctx.fillStyle = '#031634';
 		$ctx.fillRect(0, 0, $canvas.width, $canvas.height);
 		
 		for (var i = 0;i < _balls.length; i++) {
@@ -93,10 +93,14 @@
 				var _dist = Math.hypot(_ball.x - _ball2.x, _ball.y - _ball2.y); //各座標との距離を「二条和の平方根」で算出
 //				console.log(i+', '+k+':'+_dist);
 				if (_dist < 100) { //距離が100より近ければ描画。
-					$ctx.strokeStyle = '#ffffff';
-					$ctx.globalAlpha = 1 - (_dist > 100 ? 0.8 : _dist / 150)
-					//$ctx.globalAlpha = 1;
-					$ctx.lineWidth = "2px";
+					var _distM = distMouse(_ball2);
+					if (_distM > 150) {
+						$ctx.strokeStyle = '#036564';
+						$ctx.globalAlpha = 0.2;
+					} else {
+						$ctx.globalAlpha = 0;
+					}
+
 					$ctx.moveTo((0.5 + _ball.x) | 0, (0.5 + _ball.y) | 0); //ここ二行で各ボールを線で結ぶ。
 					$ctx.lineTo((0.5 + _ball2.x) | 0, (0.5 + _ball2.y) | 0);
 				}
@@ -104,8 +108,8 @@
 			$ctx.stroke();
 		}
 	}
-	function distMouse() {
-//		return 
+	function distMouse(ball) {
+		return Math.hypot(ball.x - _mouseX, ball.y - _mouseY);
 	}
 	loop();
 	
