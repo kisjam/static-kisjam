@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>absolute center</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<table width="730" border="0" cellpadding="10" cellspacing="0" style="margin-top:5px;">
+    <tbody><tr height="18" onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td height="18" colspan="7" class="moji13"><div align="left" style="width:700px">　<a href="latlng_data.xls" target="_blank"><img src="../benri_img/arrow_right.gif" width="16" height="16" align="absmiddle">都道府県庁所在地 緯度経度データ [Excelファイル] ダウンロード（日本測地系データを含む）</a></div>
+      <div align="left" style="margin-top:3px;width:700px">　<a href="get_LatLon/" target="_blank"><img src="../benri_img/arrow_right.gif" width="16" height="16" align="absmiddle">グーグルマップで緯度経度を調べる</a><br>
+　<span class="switchHat switchOn" style="cursor: pointer;"><img src="../benri_img/arrow_right.gif" width="16" height="16" align="absmiddle">&nbsp;ご利用について&nbsp;&nbsp;≫≫&nbsp;&nbsp;</span></div>
+      <div align="left" style="margin-top:3px;width:700px; font-size:14px; color:#666;"><div class="switchDetail" style="display: none;"><ul style="list-style:square">
+      <li>このページに掲載している緯度経度の座標は、各都道府県の庁舎の所在地です。</li>
+      <li>このページに掲載している座標は、「国土地理院／GIS・国土の情報」を参考にしています。</li>
+      <li>このページに掲載した座標をGoogleマップに入力した場合、若干のズレが見られるようです。</li>
+      <li>このデータのご利用は自由ですが、ご利用によっての不利益などには一切の責を負いかねます。</li>
+      <li>座標のデータを表にした<a href="latlng_data.xls" target="_blank">『Excelファイル』をこちらからダウンロードすることもできます</a>。</li>
+      <li>&nbsp;<img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0">のボタンをクリックすると、各座標での都道府県庁所在地の地図を開くことができます。</li>
+      <li>都道府県名をクリックすると『<strong>各都道府県の地名読み方一覧</strong>』を開くことができます。『各都道府県の地名読み方』のページからも、それぞれの都道府県庁所在地の地図を開くことができます。
+      <div align="right" style="margin:10px 5px 0 0">[最終更新日：2016/05/11]</div></li>
+    </ul><p class="closeBtnHat"><span style="cursor: pointer;">x 閉じる</span></p></div></div></td>
+    </tr>
+    <tr height="18">
+      <th rowspan="2">&nbsp;</th>
+      <th rowspan="2" nowrap="">都道府県</th>
+      <th rowspan="2">市区</th>
+      <th>60進数</th>
+      <th colspan="3" height="18">&nbsp;10進数</th>
+      </tr>
+    <tr height="18">
+      <th>緯度・経度</th>
+      <th height="18">緯度 , 経度</th>
+      <th>緯度</th>
+      <th>経度</th>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">1</td>
+      <td><a name="1"></a><a href="01.html">北海道</a></td>
+      <td>札幌市<br>
+        <a href="jichitai_latlng/01hokkaido/01hokkaido.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;43°03′51″<br>
+        東経&nbsp;141°20′49″</div></td>
+      <td nowrap="">43.06417,141.34694</td>
+      <td align="right">43.06417</td>
+      <td align="right">141.34694</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">2</td>
+      <td><a name="2" id="2"></a><a href="02.html">青森県</a></td>
+      <td>青森市<br>
+        <a href="jichitai_latlng/02aomori/01pref-aomori.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;40°49′28″<br>
+        東経&nbsp;140°44′24″</div></td>
+      <td>40.82444,140.74</td>
+      <td align="right">40.82444</td>
+      <td align="right">140.74</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">3</td>
+      <td><a name="3" id="3"></a><a href="03.html">岩手県</a></td>
+      <td>盛岡市<br>
+        <a href="jichitai_latlng/03iwate/01pref-iwate.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;39°42′13″<br>
+        東経&nbsp;141°09′09″</div></td>
+      <td>39.70361,141.1525</td>
+      <td align="right">39.70361</td>
+      <td align="right">141.1525</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">4</td>
+      <td><a name="4" id="4"></a><a href="04.html">宮城県</a></td>
+      <td>仙台市<br>
+        <a href="jichitai_latlng/04miyagi/01pref-miyagi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;38°16′08″<br>
+        東経&nbsp;140°52′19″</div></td>
+      <td>38.26889,140.87194</td>
+      <td align="right">38.26889</td>
+      <td align="right">140.87194</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">5</td>
+      <td><a name="5" id="5"></a><a href="05.html">秋田県</a></td>
+      <td>秋田市<br>
+        <a href="jichitai_latlng/05akita/01pref-akita.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;39°43′07″<br>
+        東経&nbsp;140°06′09″</div></td>
+      <td>39.71861,140.1025</td>
+      <td align="right">39.71861</td>
+      <td align="right">140.1025</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">6</td>
+      <td><a name="6" id="6"></a><a href="06.html">山形県</a></td>
+      <td>山形市<br>
+        <a href="jichitai_latlng/06yamagata/01pref-yamagata.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;38°14′26″<br>
+        東経&nbsp;140°21′48″</div></td>
+      <td>38.24056,140.36333</td>
+      <td align="right">38.24056</td>
+      <td align="right">140.36333</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">7</td>
+      <td><a name="7" id="7"></a><a href="07.html">福島県</a></td>
+      <td>福島市<br>
+        <a href="jichitai_latlng/07fukushima/01pref-fukushima.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;37°45′00″<br>
+        東経&nbsp;140°28′04″</div></td>
+      <td>37.75,140.46778</td>
+      <td align="right">37.75</td>
+      <td align="right">140.46778</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">8</td>
+      <td><a name="8" id="8"></a><a href="08.html">茨城県</a></td>
+      <td>水戸市<br>
+        <a href="jichitai_latlng/08ibaraki/01pref-ibaraki.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°20′29″<br>
+        東経&nbsp;140°26′48″</div></td>
+      <td>36.34139,140.44667</td>
+      <td align="right">36.34139</td>
+      <td align="right">140.44667</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">9</td>
+      <td><a name="9" id="9"></a><a href="09.html">栃木県</a></td>
+      <td>宇都宮市<br>
+        <a href="jichitai_latlng/09tochigi/01pref-tochigi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°33′57″<br>
+        東経&nbsp;139°53′01″</div></td>
+      <td>36.56583,139.88361</td>
+      <td align="right">36.56583</td>
+      <td align="right">139.88361</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">10</td>
+      <td><a name="10" id="10"></a><a href="10.html">群馬県</a></td>
+      <td>前橋市<br>
+        <a href="jichitai_latlng/10gunma/01pref-gunma.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°23′28″<br>
+        東経&nbsp;139°03′39″</div></td>
+      <td>36.39111,139.06083</td>
+      <td align="right">36.39111</td>
+      <td align="right">139.06083</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">11</td>
+      <td><a name="11" id="11"></a><a href="11.html">埼玉県</a></td>
+      <td nowrap="">さいたま市<br>
+        <a href="jichitai_latlng/11saitama/01pref-saitama.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°51′25″<br>
+        東経&nbsp;139°38′56″</div></td>
+      <td>35.85694,139.64889</td>
+      <td align="right">35.85694</td>
+      <td align="right">139.64889</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">12</td>
+      <td><a name="12" id="12"></a><a href="12.html">千葉県</a></td>
+      <td>千葉市<br>
+        <a href="jichitai_latlng/12chiba/01pref-chiba.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°36′17″<br>
+        東経&nbsp;140°07′24″</div></td>
+      <td>35.60472,140.12333</td>
+      <td align="right">35.60472</td>
+      <td align="right">140.12333</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">13</td>
+      <td><a name="13" id="13"></a><a href="13.html">東京都</a></td>
+      <td>新宿区<br>
+        <a href="jichitai_latlng/13tokyo/01tokyoto.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°41′22″<br>
+        東経&nbsp;139°41′30″</div></td>
+      <td>35.68944,139.69167</td>
+      <td align="right">35.68944</td>
+      <td align="right">139.69167</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">14</td>
+      <td nowrap=""><a name="14" id="14"></a><a href="14.html">神奈川県</a></td>
+      <td>横浜市<br>
+        <a href="jichitai_latlng/14kanagawa/01pref-kanagawa.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°26′52″<br>
+        東経&nbsp;139°38′33″</div></td>
+      <td>35.44778,139.6425</td>
+      <td align="right">35.44778</td>
+      <td align="right">139.6425</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">15</td>
+      <td><a name="15" id="15"></a><a href="15.html">新潟県</a></td>
+      <td>新潟市<br>
+        <a href="jichitai_latlng/15niigata/01pref-niigata.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;37°54′08″<br>
+        東経&nbsp;139°01′25″</div></td>
+      <td>37.90222,139.02361</td>
+      <td align="right">37.90222</td>
+      <td align="right">139.02361</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">16</td>
+      <td><a name="16" id="16"></a><a href="16.html">富山県</a></td>
+      <td>富山市<br>
+        <a href="jichitai_latlng/16toyama/01pref-toyama.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°41′43″<br>
+        東経&nbsp;137°12′41″</div></td>
+      <td>36.69528,137.21139</td>
+      <td align="right">36.69528</td>
+      <td align="right">137.21139</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">17</td>
+      <td><a name="17" id="17"></a><a href="17.html">石川県</a></td>
+      <td>金沢市<br>
+        <a href="jichitai_latlng/17ishikawa/01pref-ishikawa.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°35′40″<br>
+        東経&nbsp;136°37′32″</div></td>
+      <td>36.59444,136.62556</td>
+      <td align="right">36.59444</td>
+      <td align="right">136.62556</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">18</td>
+      <td><a name="18" id="18"></a><a href="18.html">福井県</a></td>
+      <td>福井市<br>
+        <a href="jichitai_latlng/18fukui/01pref-fukui.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°03′55″<br>
+        東経&nbsp;136°13′19″</div></td>
+      <td>36.06528,136.22194</td>
+      <td align="right">36.06528</td>
+      <td align="right">136.22194</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">19</td>
+      <td><a name="19" id="19"></a><a href="19.html">山梨県</a></td>
+      <td>甲府市<br>
+        <a href="jichitai_latlng/19yamanashi/01pref-yamanashi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°39′50″<br>
+        東経&nbsp;138°34′06″</div></td>
+      <td>35.66389,138.56833</td>
+      <td align="right">35.66389</td>
+      <td align="right">138.56833</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">20</td>
+      <td><a name="20" id="20"></a><a href="20.html">長野県</a></td>
+      <td>長野市<br>
+        <a href="jichitai_latlng/20nagano/01pref-nagano.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;36°39′05″<br>
+        東経&nbsp;138°10′52″</div></td>
+      <td>36.65139,138.18111</td>
+      <td align="right">36.65139</td>
+      <td align="right">138.18111</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">21</td>
+      <td><a name="21" id="21"></a><a href="21.html">岐阜県</a></td>
+      <td>岐阜市<br>
+        <a href="jichitai_latlng/21gifu/01pref-gifu.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°23′28″<br>
+        東経&nbsp;136°43′20″</div></td>
+      <td>35.39111,136.72222</td>
+      <td align="right">35.39111</td>
+      <td align="right">136.72222</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">22</td>
+      <td><a name="22" id="22"></a><a href="22.html">静岡県</a></td>
+      <td>静岡市<br>
+        <a href="jichitai_latlng/22shizuoka/01pref-shizuoka.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°58′37″<br>
+        東経&nbsp;138°22′59″</div></td>
+      <td>34.97694,138.38306</td>
+      <td align="right">34.97694</td>
+      <td align="right">138.38306</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">23</td>
+      <td><a name="23" id="23"></a><a href="23.html">愛知県</a></td>
+      <td>名古屋市<br>
+        <a href="jichitai_latlng/23aichi/01pref-aichi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°10′49″<br>
+        東経&nbsp;136°54′24″</div></td>
+      <td>35.18028,136.90667</td>
+      <td align="right">35.18028</td>
+      <td align="right">136.90667</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">24</td>
+      <td><a name="24" id="24"></a><a href="24.html">三重県</a></td>
+      <td>津市<br>
+        <a href="jichitai_latlng/24mie/01pref-mie.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°43′49″<br>
+        東経&nbsp;136°30′31″</div></td>
+      <td>34.73028,136.50861</td>
+      <td align="right">34.73028</td>
+      <td align="right">136.50861</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">25</td>
+      <td><a name="25" id="25"></a><a href="25.html">滋賀県</a></td>
+      <td>大津市<br>
+        <a href="jichitai_latlng/25shiga/01pref-shiga.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°00′16″<br>
+        東経&nbsp;135°52′06″</div></td>
+      <td>35.00444,135.86833</td>
+      <td align="right">35.00444</td>
+      <td align="right">135.86833</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">26</td>
+      <td><a name="26" id="26"></a><a href="26.html">京都府</a></td>
+      <td>京都市<br>
+        <a href="jichitai_latlng/26kyoto/01kyoto.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°01′17″<br>
+        東経&nbsp;135°45′20″</div></td>
+      <td>35.02139,135.75556</td>
+      <td align="right">35.02139</td>
+      <td align="right">135.75556</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">27</td>
+      <td><a name="27" id="27"></a><a href="27.html">大阪府</a></td>
+      <td>大阪市<br>
+        <a href="jichitai_latlng/27osaka/01osaka.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°41′11″<br>
+        東経&nbsp;135°31′12″</div></td>
+      <td>34.68639,135.52</td>
+      <td align="right">34.68639</td>
+      <td align="right">135.52</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">28</td>
+      <td><a name="28" id="28"></a><a href="28.html">兵庫県</a></td>
+      <td>神戸市<br>
+        <a href="jichitai_latlng/28hyogo/01pref-hyogo.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°41′29″ <br>
+        東経&nbsp;135°10′59″</div></td>
+      <td>34.69139,135.18306</td>
+      <td align="right">34.69139</td>
+      <td align="right">135.18306</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">29</td>
+      <td><a name="29" id="29"></a><a href="29.html">奈良県</a></td>
+      <td>奈良市<br>
+        <a href="jichitai_latlng/29nara/01pref-nara.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°41′07″<br>
+        東経&nbsp;135°49′58″</div></td>
+      <td>34.68528,135.83278</td>
+      <td align="right">34.68528</td>
+      <td align="right">135.83278</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">30</td>
+      <td><a name="30" id="30"></a><a href="30.html">和歌山県</a></td>
+      <td>和歌山市<br>
+        <a href="jichitai_latlng/30wakayama/01pref-wakayama.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°13′34″<br>
+        東経&nbsp;135°10′03″</div></td>
+      <td>34.22611,135.1675</td>
+      <td align="right">34.22611</td>
+      <td align="right">135.1675</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">31</td>
+      <td><a name="31" id="31"></a><a href="31.html">鳥取県</a></td>
+      <td>鳥取市<br>
+        <a href="jichitai_latlng/31tottori/01pref-tottori.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°30′13″<br>
+        東経&nbsp;134°14′18″</div></td>
+      <td>35.50361,134.23833</td>
+      <td align="right">35.50361</td>
+      <td align="right">134.23833</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">32</td>
+      <td><a name="32" id="32"></a><a href="32.html">島根県</a></td>
+      <td>松江市<br>
+        <a href="jichitai_latlng/32shimane/01pref-shimane.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;35°28′20″<br>
+        東経&nbsp;133°03′02″</div></td>
+      <td>35.47222,133.05056</td>
+      <td align="right">35.47222</td>
+      <td align="right">133.05056</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">33</td>
+      <td><a name="33" id="33"></a><a href="33.html">岡山県</a></td>
+      <td>岡山市<br>
+        <a href="jichitai_latlng/33okayama/01pref-okayama.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°39′42″<br>
+        東経&nbsp;133°56′06″</div></td>
+      <td>34.66167,133.935</td>
+      <td align="right">34.66167</td>
+      <td align="right">133.935</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">34</td>
+      <td><a name="34" id="34"></a><a href="34.html">広島県</a></td>
+      <td>広島市<br>
+        <a href="jichitai_latlng/34hiroshima/01pref-hiroshima.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°23′47″<br>
+        東経&nbsp;132°27′34″</div></td>
+      <td>34.39639,132.45944</td>
+      <td align="right">34.39639</td>
+      <td align="right">132.45944</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">35</td>
+      <td><a name="35" id="35"></a><a href="35.html">山口県</a></td>
+      <td>山口市<br>
+        <a href="jichitai_latlng/35yamaguchi/01pref-yamaguchi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°11′09″<br>
+        東経&nbsp;131°28′17″</div></td>
+      <td>34.18583,131.47139</td>
+      <td align="right">34.18583</td>
+      <td align="right">131.47139</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">36</td>
+      <td><a name="36" id="36"></a><a href="36.html">徳島県</a></td>
+      <td>徳島市<br>
+        <a href="jichitai_latlng/36tokushima/01pref-tokushima.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°03′57″<br>
+        東経&nbsp;134°33′34″</div></td>
+      <td>34.06583,134.55944</td>
+      <td align="right">34.06583</td>
+      <td align="right">134.55944</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">37</td>
+      <td><a name="37" id="37"></a><a href="37.html">香川県</a></td>
+      <td>高松市<br>
+        <a href="jichitai_latlng/37kagawa/01pref-kagawa.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;34°20′25″ <br>
+        東経&nbsp;134°02′36″</div></td>
+      <td>34.34028,134.04333</td>
+      <td align="right">34.34028</td>
+      <td align="right">134.04333</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">38</td>
+      <td><a name="38" id="38"></a><a href="38.html">愛媛県</a></td>
+      <td>松山市<br>
+        <a href="jichitai_latlng/38ehime/01pref-ehime.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;33°50′30″<br>
+        東経&nbsp;132°45′58″</div></td>
+      <td>33.84167,132.76611</td>
+      <td align="right">33.84167</td>
+      <td align="right">132.76611</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">39</td>
+      <td><a name="39" id="39"></a><a href="39.html">高知県</a></td>
+      <td>高知市<br>
+        <a href="jichitai_latlng/39kochi/01pref-kochi.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;33°33′35″<br>
+        東経&nbsp;133°31′52″</div></td>
+      <td>33.55972,133.53111</td>
+      <td align="right">33.55972</td>
+      <td align="right">133.53111</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">40</td>
+      <td><a name="40" id="40"></a><a href="40.html">福岡県</a></td>
+      <td>福岡市<br>
+        <a href="jichitai_latlng/40fukuoka/01pref-fukuoka.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;33°36′23″<br>
+        東経&nbsp;130°25′05″</div></td>
+      <td>33.60639,130.41806</td>
+      <td align="right">33.60639</td>
+      <td align="right">130.41806</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'" style="background-color: rgb(255, 255, 255);">
+      <td align="right" class="moji10">41</td>
+      <td><a name="41" id="41"></a><a href="41.html">佐賀県</a></td>
+      <td>佐賀市<br>
+        <a href="jichitai_latlng/41saga/01pref-saga.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;33°14′58″<br>
+        東経&nbsp;130°17′56″</div></td>
+      <td>33.24944,130.29889</td>
+      <td align="right">33.24944</td>
+      <td align="right">130.29889</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">42</td>
+      <td><a name="42" id="42"></a><a href="42.html">長崎県</a></td>
+      <td>長崎市<br>
+        <a href="jichitai_latlng/42nagasaki/01pref-nagasaki.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;32°44′41″<br>
+        東経&nbsp;129°52′25″</div></td>
+      <td>32.74472,129.87361</td>
+      <td align="right">32.74472</td>
+      <td align="right">129.87361</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">43</td>
+      <td><a name="43" id="43"></a><a href="43.html">熊本県</a></td>
+      <td>熊本市<br>
+        <a href="jichitai_latlng/43kumamoto/01pref-kumamoto.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;32°47′23″<br>
+        東経&nbsp;130°44′30″</div></td>
+      <td>32.78972,130.74167</td>
+      <td align="right">32.78972</td>
+      <td align="right">130.74167</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">44</td>
+      <td><a name="44" id="44"></a><a href="44.html">大分県</a></td>
+      <td>大分市<br>
+        <a href="jichitai_latlng/44oita/01pref-oita.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;33°14′17″<br>
+        東経&nbsp;131°36′45″</div></td>
+      <td>33.23806,131.6125</td>
+      <td align="right">33.23806</td>
+      <td align="right">131.6125</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">45</td>
+      <td><a name="45" id="45"></a><a href="45.html">宮崎県</a></td>
+      <td>宮崎市<br>
+        <a href="jichitai_latlng/45miyazaki/01pref-miyazaki.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;31°54′40″<br>
+        東経&nbsp;131°25′26″</div></td>
+      <td>31.91111,131.42389</td>
+      <td align="right">31.91111</td>
+      <td align="right">131.42389</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td align="right" class="moji10">46</td>
+      <td><a name="46" id="46"></a><a href="46.html">鹿児島県</a></td>
+      <td>鹿児島市<br>
+        <a href="jichitai_latlng/46kagoshima/01pref-kagoshima.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;31°33′37″<br>
+        東経&nbsp;130°33′29″</div></td>
+      <td>31.56028,130.55806</td>
+      <td align="right">31.56028</td>
+      <td align="right">130.55806</td>
+      </tr>
+    <tr onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td height="18" align="right" class="moji10">47</td>
+      <td><a name="47" id="47"></a><a href="47.html">沖縄県</a></td>
+      <td>那覇市<br>
+        <a href="jichitai_latlng/47okinawa/01pref-okinawa.html"><img src="../benri_img/b_map.gif" alt="地図を開く" width="47" height="16" border="0"></a></td>
+      <td><div align="left" style="margin-left:8px">北緯&nbsp;&nbsp;&nbsp;26°12′45″<br>
+        東経&nbsp;127°40′52″</div></td>
+      <td>26.2125,127.68111</td>
+      <td align="right">26.2125</td>
+      <td align="right">127.68111</td>
+      </tr>
+    
+    <tr height="18">
+      <th rowspan="2" class="moji10">&nbsp;</th>
+      <th rowspan="2" nowrap="">都道府県</th>
+      <th rowspan="2">市区</th>
+      <th>緯度・経度</th>
+      <th height="18">緯度 , 経度</th>
+      <th>緯度</th>
+      <th>経度</th>
+      </tr>
+    <tr height="18">
+      <th>60進数</th>
+      <th colspan="3" height="18">&nbsp;10進数</th>
+      </tr>
+    <tr height="18" onmouseover="this.style.backgroundColor='#FFFDDC';" onmouseout="this.style.backgroundColor='#FFFFFF'">
+      <td height="18" colspan="7" class="moji13"><div align="left">　<a href="latlng_data.xls" target="_blank"><img src="../benri_img/arrow_right.gif" width="16" height="16" align="absmiddle">都道府県庁所在地 緯度経度データ [Excelファイル] ダウンロード（日本測地系データを含む）</a></div>
+      <div align="left" style="margin-top:3px;">　<a href="get_LatLon/" target="_blank"><img src="../benri_img/arrow_right.gif" width="16" height="16" align="absmiddle">グーグルマップで緯度経度を調べる</a></div></td>
+    </tr>
+  </tbody></table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		var $lat = $('table tr').eq(3);
+		
+		console.log($lat)
+	})
+</script>
+</body>
+</html>

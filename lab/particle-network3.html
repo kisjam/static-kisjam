@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>absolute center</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+</head>
+<body>
+<canvas id="article"></canvas>
+<script>
+	
+	var $canvas = document.getElementById('article');
+	var $ctx = $canvas.getContext("2d");
+	var _tau = Math.PI * 2;
+	var _lasttime = Date.now();
+	var _mouseX = -1e9;
+	var _mouseY = -1e9;
+	var _balls = [];
+	
+	$canvas.width = window.innerWidth;
+	$canvas.height = window.innerHeight;
+	document.addEventListener('mousemove', function(event) {
+		_mouseX = event.clientX;
+		_mouseY = event.clientY;
+	})
+	for (var i = 0; i < $canvas.width * $canvas.height / (65 * 65); i++) {
+		_balls.push(new Ball());
+	}
+	
+	function Ball(startX, startY, startVelX, startVelY) {
+		this.x = startX || Math.random() * $canvas.width;
+		this.y = startY || Math.random() * $canvas.height;
+		this.vel = { // 速度
+			x: startVelX || Math.random() * 2 - 1,
+			y: startVelY || Math.random() * 2 - 1,
+		}
+		this.update = function(canvas) {
+			if (this.x > $canvas.width + 50 || this.x < -50) {
+				this.vel.x = -this.vel.x;
+			}
+			if (this.y > $canvas.height + 50 || this.y < -50) {
+				this.vel.y = -this.vel.y;
+			}
+			this.x += this.vel.x;
+			this.y += this.vel.y;
+		};
+		this.draw = function() {
+			$ctx.beginPath();
+			var _distM = distMouse(this);
+
+			if (_distM > 200) {
+				$ctx.fillStyle = '#036564';				
+				$ctx.globalAlpha = 0.8;
+			} else {
+
+				$ctx.fillStyle = '#CDB380';
+				$ctx.globalAlpha = 1 - _distM / 240;
+			}
+			
+			$ctx.arc((0.5 + this.x) | 0, (0.5 + this.y) | 0, 3, 0, _tau, false);
+			$ctx.fill();
+		};
+	}
+	function loop() { //消して再描画を繰り返す。
+		$ctx.clearRect(0, 0, $canvas.width, $canvas.height);
+		update();
+		draw();
+		requestAnimationFrame(loop);
+	}
+	function update() {
+		var _diff = Date.now() - _lasttime;
+		for (var i = 0; i * 16.6667 < _diff; i++) { //前回の実行からの間隔で繰り返し回数を制御。
+			for (var k = 0; k < _balls.length; k++) { // 全てのボールに対して実行
+				_balls[k].update($canvas);
+			}
+		}
+		_lasttime = Date.now();
+	}
+	function draw() {
+		$ctx.globalAlpha = 1;
+		$ctx.fillStyle = '#031634';
+		$ctx.fillRect(0, 0, $canvas.width, $canvas.height);
+		
+		for (var i = 0;i < _balls.length; i++) {
+			var _ball = _balls[i];
+//			var _distM = distMouse(_ball);
+			
+			_ball.draw($ctx, $canvas);
+			$ctx.beginPath();
+			
+			for (var k = _balls.length - 1; k > i; k--) {
+
+				var _ball2 = _balls[k];
+				var _dist = Math.hypot(_ball.x - _ball2.x, _ball.y - _ball2.y); //各座標との距離を「二条和の平方根」で算出
+//				console.log(i+', '+k+':'+_dist);
+				if (_dist < 100) { //距離が100より近ければ描画。
+					var _distM = distMouse(_ball2);
+					if (_distM > 150) {
+						$ctx.strokeStyle = '#036564';
+						$ctx.globalAlpha = 0.2;
+					} else {
+						$ctx.globalAlpha = 0;
+					}
+
+					$ctx.moveTo((0.5 + _ball.x) | 0, (0.5 + _ball.y) | 0); //ここ二行で各ボールを線で結ぶ。
+					$ctx.lineTo((0.5 + _ball2.x) | 0, (0.5 + _ball2.y) | 0);
+				}
+			}
+			$ctx.stroke();
+		}
+	}
+	function distMouse(ball) {
+		return Math.hypot(ball.x - _mouseX, ball.y - _mouseY);
+	}
+	loop();
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>absolute center</title>
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand'>
+<link rel="stylesheet" href="/css/lab/layout.css">
+<style>
+
+/*
+594F4F
+547980
+45ADA8
+9DE0AD
+E5FCC2
+
+35.063305555556,
+135.75004444444
+*/
+
+
+	.info {
+		padding: 20px;
+		position: absolute;
+		top: 5%;
+		left:5%;
+		background: #594F4F;
+		color: #547980;
+	}
+	#pref {
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding: 10px;
+		background: #9DE0AD;
+		color: #594F4F;
+	}
+</style>
+</head>
+<body>
+<div class="info">
+	<p>基準となる緯度経度<br>
+	始点：45.656497, 127.322870<br>
+	終点：25.654446, 148.943627</p>
+</div>
+<div id="pref"></div>
+
+<canvas id="map"></canvas>
+<script>
+	var _arrPrefPos = {
+		'北海道':'43.06417,141.34694',
+		'青森県':'40.82444,140.74',
+		'岩手県':'39.70361,141.1525',
+		'宮城県':'38.26889,140.87194',
+		'秋田県':'39.71861,140.1025',
+		'山形県':'38.24056,140.36333',
+		'福島県':'37.75,140.46778',
+		'茨城県':'36.34139,140.44667',
+		'栃木県':'36.56583,139.88361',
+		'群馬県':'36.39111,139.06083',
+		'埼玉県':'35.85694,139.64889',
+		'千葉県':'35.60472,140.12333',
+		'東京都':'35.68944,139.69167',
+		'神奈川県':'35.44778,139.6425 ',
+		'新潟県':'37.90222,139.02361',
+		'富山県':'36.69528,137.21139',
+		'石川県':'36.59444,136.62556',
+		'福井県':'36.06528,136.22194',
+		'山梨県':'35.66389,138.56833',
+		'長野県':'36.65139,138.18111',
+		'岐阜県':'35.39111,136.72222',
+		'静岡県':'34.97694,138.38306',
+		'愛知県':'35.18028,136.90667',
+		'三重県':'34.73028,136.50861',
+		'滋賀県':'35.00444,135.86833',
+		'京都府':'35.02139,135.75556',
+		'大阪府':'34.68639,135.52',
+		'兵庫県':'34.69139,135.18306',
+		'奈良県':'34.68528,135.83278',
+		'和歌山県':'34.22611,135.1675 ',
+		'鳥取県':'35.50361,134.23833',
+		'島根県':'35.47222,133.05056',
+		'岡山県':'34.66167,133.935',
+		'広島県':'34.39639,132.45944',
+		'山口県':'34.18583,131.47139',
+		'徳島県':'34.06583,134.55944',
+		'香川県':'34.34028,134.04333',
+		'愛媛県':'33.84167,132.76611',
+		'高知県':'33.55972,133.53111',
+		'福岡県':'33.60639,130.41806',
+		'佐賀県':'33.24944,130.29889',
+		'長崎県':'32.74472,129.87361',
+		'熊本県':'32.78972,130.74167',
+		'大分県':'33.23806,131.6125',
+		'宮崎県':'31.91111,131.42389',
+		'鹿児島県':'31.56028,130.55806',
+		'沖縄県':'26.2125,127.68111'
+	};
+	var _criteriaStartPosX = 127.322870;
+	var _criteriaStartPosY = 45.656497;
+	var _criteriaEndPosX = 148.943627;
+	var _criteriaEndPosY = 25.654446;
+	
+//	var _samplePosX = 35.063305555556;
+//	var _samplePosY = 135.75004444444;
+	
+	var _distCriteriaX = _criteriaStartPosX - _criteriaEndPosX;
+	var _distCriteriaY = _criteriaStartPosY - _criteriaEndPosY;
+	
+	console.log('distX: ' + _distCriteriaX);
+	console.log('distY: ' + _distCriteriaY);
+	
+//	var pinPosX = _criteriaStartPosX - _samplePosX;
+//	var pinPosY = _criteriaStartPosY - _samplePosY;
+	
+//	console.log(pinPosX.toFixed(6));
+//	console.log(pinPosY.toFixed(6));
+	
+	var $canvas = document.getElementById('map');
+	var $ctx = $canvas.getContext("2d");
+	var $pref = document.getElementById('pref');
+	var _tau = Math.PI * 2;
+	var _lasttime = Date.now();
+	var _mouseX = -1e9;
+	var _mouseY = -1e9;
+	var _balls = [];
+	
+	$canvas.width = window.innerWidth;
+	$canvas.height = window.innerHeight;
+	
+//	$canvas.width = 1000;
+//	$canvas.height = 1000;
+	
+	var _scalePosX = $canvas.width / _distCriteriaX;
+	var _scalePosY = $canvas.height / _distCriteriaY;
+	
+	console.log('scaleX: '+_scalePosX);
+	console.log('scaleY: '+_scalePosY);
+	
+	document.addEventListener('mousemove', function(event) {
+		_mouseX = event.clientX;
+		_mouseY = event.clientY;
+	})
+	
+//	console.log('PinX:'+_scalePosX * pinPosX);
+//	console.log('PinY:'+_scalePosY * pinPosY);
+//	console.log('vw: '+ $canvas.width);
+	
+	var _prefPos = [];
+	var _count = 0;
+	
+
+	for (var i in _arrPrefPos) {
+		_arrPrefPos[i] = _arrPrefPos[i].split(',');
+		var _pinPosX = (_criteriaStartPosX - _arrPrefPos[i][1]) * _scalePosX;
+		var _pinPosY = (_criteriaStartPosY - _arrPrefPos[i][0]) * _scalePosY;
+
+		_balls.push(new Ball(_pinPosX, _pinPosY, 0, 0, i));
+//		_count++;
+	}
+//	console.log(_count)
+	
+	function Ball(startX, startY, startVelX, startVelY, place) {
+		this.x = startX || Math.random() * $canvas.width;
+		this.y = startY || Math.random() * $canvas.height;
+		this.vel = { // 速度
+			x: startVelX || Math.random() * 2 - 1,
+			y: startVelY || Math.random() * 2 - 1,
+		}
+		this.update = function(canvas) {};
+		this.draw = function() {
+			$ctx.beginPath();
+			$ctx.fillStyle = '#036564';				
+			$ctx.globalAlpha = 0.8;
+			$ctx.arc((0.5 + this.x) | 0, (0.5 + this.y) | 0, 3, 0, _tau, false);
+			$ctx.fill();
+		};
+		this.getPlace = function() {
+			return place;
+		}
+	}
+
+	
+	function loop() {
+		$ctx.clearRect(0, 0, $canvas.width, $canvas.height);
+		update();
+		draw();
+		
+		requestAnimationFrame(loop);
+	}
+	function update() {
+	}
+	function draw() {
+		$ctx.globalAlpha = 1;
+		$ctx.fillStyle = '#45ADA8';
+		$ctx.fillRect(0, 0, $canvas.width, $canvas.height);
+		$pref.style.left = _mouseX + 10 + 'px';
+		$pref.style.top = _mouseY + 10 + 'px';
+		
+		
+		for (var i = 0;i < _balls.length; i++) {
+			var _ball = _balls[i];
+			
+			_ball.draw($ctx, $canvas);
+			
+			visiblePlace(_ball);
+			
+			$ctx.beginPath();
+			
+			for (var k = _balls.length - 1; k > i; k--) {
+
+				var _ball2 = _balls[k];
+				var _dist = Math.hypot(_ball.x - _ball2.x, _ball.y - _ball2.y); //各座標との距離を「二条和の平方根」で算出
+				if (_dist < 100) { //距離が100より近ければ描画。
+					var _distM = distMouse(_ball2);
+					if (_distM > 150) {
+						$ctx.strokeStyle = '#036564';
+						$ctx.globalAlpha = 0.3;
+					} else {
+						$ctx.strokeStyle = '#036564';
+						$ctx.globalAlpha = 0.2;
+					}
+
+					$ctx.moveTo((0.5 + _ball.x) | 0, (0.5 + _ball.y) | 0); //ここ二行で各ボールを線で結ぶ。
+					$ctx.lineTo((0.5 + _ball2.x) | 0, (0.5 + _ball2.y) | 0);
+				}
+			}
+			$ctx.stroke();
+		}
+	}
+	function visiblePlace(ball) {
+		var _distM = distMouse(ball);
+		var _isVal = false;
+		
+		if (_distM < 10) {
+			var _pref = ball.getPlace();
+			$pref.innerHTML = _pref;
+		} else {
+//			$pref.innerHTML = '';
+		}
+		
+	}
+	function distMouse(ball) {
+		return Math.hypot(ball.x - _mouseX, ball.y - _mouseY);
+	}
+
+	loop();
+	
+	
+</script>
+
+</body>
+</html>
